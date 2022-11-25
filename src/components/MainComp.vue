@@ -1,9 +1,11 @@
 <template>
   <main>
 
-    <div>
+    <div class="ms-cont-albums">
 
-      <AlbumComp/>
+      <AlbumComp v-for="(elem,index) in arrayAlbum" 
+      :key="index" 
+      :AlbumData = "elem"/>
 
     </div>
 
@@ -59,6 +61,18 @@ export default {
 <style scoped lang="scss">
 
   main{
+
+    padding-top: 6rem;
     background-color: rgba(30, 45, 59, 1);
+    
+    .ms-cont-albums{
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px 40px;
+      width: 70%;
+      margin: 0 auto;
+    }
   }
 </style>

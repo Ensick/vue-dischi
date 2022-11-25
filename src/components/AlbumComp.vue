@@ -1,14 +1,22 @@
 <template>
     <div class="ms-card-album">
-        <img src="https://img.discogs.com/vknPDdrqRbT92pNRX0W4I5N91jg=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-1246953-1448927086-6590.jpeg.jpg" alt="img">
-        <h2>New Jersey</h2>
-        <h3>1988</h3>
+        <img :src="AlbumData.poster" alt="img">
+        <h2>{{AlbumData.title}}</h2>
+        <h4>{{AlbumData.author}}</h4>
+        <h4>{{AlbumData.year}}</h4>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'AlbumComp'
+
+        name: 'AlbumComp',
+
+        props: {
+
+           AlbumData: Object
+            
+        }
     }
 </script>
 
@@ -16,18 +24,30 @@
 
     .ms-card-album{
 
-        width: calc(100% / 5);
-        padding: 25px 15px;
-        aspect-ratio: 2/1;
+
+        background-color: rgba(46, 58, 70, 1);
+        width: calc((100% / 5) - 40px);
+        padding: 30px 30px 50px 30px;
+        aspect-ratio: 1/1;
 
         img{
             width: 100%;
+            margin-bottom: 20px;
+        }
+
+        h2{
+            padding-bottom: 15px;
+            color: white;
         }
             
-        h2,h3{
+        h2,h4{
 
-            color: white;
             text-align: center;
+        }
+
+        h4{
+
+            color: rgba(105, 108, 110, 1);
         }
     }
 

@@ -1,6 +1,7 @@
 <template>
   <div id="app">
 
+    <HeaderComp/>
     <MainComp/>
 
   </div>
@@ -8,12 +9,14 @@
 
 <script>
 import MainComp from './components/MainComp.vue'
+import HeaderComp from './components/HeaderComp.vue'
 
 export default {
   name: 'App',
   components: {
 
     MainComp,
+    HeaderComp,
   },
 }
 </script>

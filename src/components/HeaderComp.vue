@@ -24,6 +24,8 @@
         
         div{
            
+           display: flex;
+           
             img{
 
                 width: 50px;

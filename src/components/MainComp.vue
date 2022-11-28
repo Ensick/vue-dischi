@@ -98,11 +98,18 @@ export default {
 
     padding-top: 6rem;
     background-color: rgba(30, 45, 59, 1);
+    height: calc(100% - 100px);
     
     .ms-cont-70{
 
       width: 70%;
       margin: 0 auto;
+
+      select{
+
+        margin-bottom: 20px;
+        width: 100px;
+      }
     }
 
     .ms-albums{

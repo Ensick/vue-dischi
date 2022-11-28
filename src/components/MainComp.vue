@@ -3,14 +3,15 @@
 
     <div class="ms-cont-70">
 
-      <select name="" id="" v-model="valueOptionSelected">
-        <option @click="selezioneGenere()" :value="elem" v-for="(elem,index) in arrayGeneri" :key="index">{{elem}}</option>
+      <select @change="funzioneComputed()" v-model="sceltaGenere">
+        <option value="">Tutti</option>
+        <option :value="elem" v-for="(elem,index) in arrayGeneri" :key="index">{{elem}}</option>
       </select>
 
 
       <div class="ms-albums">
 
-      <AlbumComp v-for="(elem,index) in arrayAlbum" 
+      <AlbumComp v-for="(elem,index) in funzioneComputed" 
       :key="index" 
       :AlbumData = "elem"/>
 
@@ -40,8 +41,7 @@ export default {
   data(){
     return{
 
-      sceltaGenere: false,
-      valueOptionSelected: '',
+      sceltaGenere: '',
       arrayAlbum: [],
       arrayGeneri: [],
     
@@ -60,8 +60,6 @@ export default {
         if(!this.arrayGeneri.includes(singoloAlbum.genre)){
 
           this.arrayGeneri.push(singoloAlbum.genre)
-
-          console.log(this.arrayGeneri);
           
         }
         
@@ -71,9 +69,22 @@ export default {
   
   },
 
-  methods:{
+  computed: {
 
+    funzioneComputed(){
 
+      if(this.sceltaGenere == ''){
+
+        return this.arrayAlbum
+
+      }else {
+
+        return this.arrayAlbum.filter((elem) => {
+
+          return elem.genre == this.sceltaGenere
+        })
+      }
+    }
   }
 
 }
@@ -98,7 +109,7 @@ export default {
 
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: start;
       gap: 20px 40px;
     }
   }

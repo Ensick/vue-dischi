@@ -99,6 +99,7 @@ export default {
     padding-top: 6rem;
     background-color: rgba(30, 45, 59, 1);
     height: calc(100% - 100px);
+    overflow: auto;
     
     .ms-cont-70{
 
